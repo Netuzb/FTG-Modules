@@ -104,7 +104,7 @@ class TerminalMod(loader.Module):
         del self.activecmds[hash_msg(message)]
 
     @loader.owner
-    async def terminatecmd(self, message):
+    async def cmd(self, message):
         """Use in reply to send SIGTERM to a process"""
         if not message.is_reply:
             await utils.answer(message, self.strings("what_to_kill", message))
@@ -121,7 +121,7 @@ class TerminalMod(loader.Module):
             await utils.answer(message, self.strings("no_cmd", message))
 
     @loader.owner
-    async def killcmd(self, message):
+    async def cmd(self, message):
         """Use in reply to send SIGKILL to a process"""
         if not message.is_reply:
             await utils.answer(message, self.strings("what_to_kill", message))
@@ -137,7 +137,7 @@ class TerminalMod(loader.Module):
         else:
             await utils.answer(message, self.strings("no_cmd", message))
 
-    async def neofetchcmd(self, message):
+    async def cmd(self, message):
         """Show system stats via neofetch"""
         await self.run_command(
             message,
@@ -147,7 +147,7 @@ class TerminalMod(loader.Module):
             ),
         )
 
-    async def uptimecmd(self, message):
+    async def cmd(self, message):
         """Show system uptime"""
         await self.run_command(
             message,
