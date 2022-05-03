@@ -1,4 +1,3 @@
 - musiqa
 - carbon
-- filter
-- admin
+- umod_filtrlar
