@@ -5,7 +5,7 @@
 from .. import loader, utils
 
 
-@loader.tds
+@loader.unrestricted
 class FiltersMod(loader.Module):
     """Filters module"""
 
