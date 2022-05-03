@@ -13,7 +13,8 @@ class FiltersMod(loader.Module):
 
     async def client_ready(self, client, db):
         self.db = db
-
+    
+    @loader.unrestricted
     async def filtercmd(self, message):
         """Adds a filter into the list."""
         filters = self.db.get("Filters", "filters", {})
@@ -55,6 +56,7 @@ class FiltersMod(loader.Module):
         self.db.set("Filters", "filters", filters)
         await message.edit(f'<b>Filter "{key}" saved!</b>')
 
+    @loader.unrestricted
     async def stopcmd(self, message):
         """Removes a filter from the list."""
         filters = self.db.get("Filters", "filters", {})
@@ -77,6 +79,7 @@ class FiltersMod(loader.Module):
         else:
             return await message.edit("<b>No args.</b>")
 
+    @loader.unrestricted
     async def stopallcmd(self, message):
         """Clears out the filter list."""
         filters = self.db.get("Filters", "filters", {})
@@ -89,6 +92,7 @@ class FiltersMod(loader.Module):
         self.db.set("Filters", "filters", filters)
         await message.edit("<b>All filters have been removed from the chat list!</b>")
 
+    @loader.unrestricted
     async def filterscmd(self, message):
         """Shows saved filters."""
         filters = self.db.get("Filters", "filters", {})
