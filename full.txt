@@ -1,2 +1,6 @@
+- Asosiy modullarimiz:
 musiqa
+carbon
+
+- FTG modullari:
 filter
