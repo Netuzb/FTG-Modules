@@ -2,11 +2,16 @@
 #    ░██░░██░░░██░█░██░██░██░███░░
 #    ░██░░████░██░░░██░█████░█████
 #    ═════════════════════════════════════════
+#    ████░████░░██░██░██░███░░██░█████░██░░░██
+#    ██░░░███░░░████░░██░██░█░██░██░██░░██░██░
+#    ████░█████░██░██░██░██░░███░█████░░░███░░
+#    ═════════════════════════════════════════
 #    Litsenziya: https://t.me/UModules/112
 #    Taqdim qilingan manzil: https://telegram.me/umodules
+
 __version__ = (1, 2, 0)
 
-# mod developer: @netuzb
+# meta developer: @netuzb
 # meta channel: @umodules
 
 from .. import loader, utils 
