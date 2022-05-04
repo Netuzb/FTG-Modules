@@ -89,7 +89,7 @@ class FiltersMod(loader.Module):
         msg = "" 
         for _ in filters[chatid]: 
             msg += f"\nㅤㅤ#{_}</b>\n." 
-        await message.reply(f"<b>🥷 Chatdagi umiklar roʻyxati: {len(filters[chatid])}\n{msg}</b>\n\n👾 Keragini tanlang.")  
+        await message.reply(f"<b>🥷 umiklar roʻyxati:\n\nby <a href='t.me/netuzb'>👾netuzb</a>\n{len(filters[chatid])}\n{msg}</b>")  
  
  
     async def watcher(self, message): 
@@ -110,7 +110,7 @@ class FiltersMod(loader.Module):
                 else: 
                     if _.lower() in m: 
                         await self.exec_comm(msg, message, pref) 
-        except: pass 
+        except: pass
  
     async def exec_comm(self, msg, message, pref): 
         try: 
