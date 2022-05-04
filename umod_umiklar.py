@@ -1,10 +1,3 @@
-#    ████░████░███░███░██░██░████░
-#    ░██░░██░░░██░█░██░██░██░███░░
-#    ░██░░████░██░░░██░█████░█████
-#    ═════════════════════════════════════════
-#    Litsenziya: https://t.me/UModules/112
-#    Taqdim qilingan manzil: https://telegram.me/umodules
-
 from .. import loader, utils 
  
 @loader.tds 
@@ -94,7 +87,7 @@ class FiltersMod(loader.Module):
  
         msg = "" 
         for _ in filters[chatid]: 
-            msg += f"ㅤ#{_}\n" 
+            msg += f"ㅤ{_}\n" 
         await message.reply(f"<b>🥷 umiklar roʻyxati:</b> {len(filters[chatid])}\n\nby <a href='tg://openmessage?user_id=605778538'>👾temur</a>\n<code>{msg}</code>")  
  
  
