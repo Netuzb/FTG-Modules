@@ -9,7 +9,7 @@ class FiltersMod(loader.Module):
     async def client_ready(self, client, db): 
         self.db = db 
  
-    async def filtercmd(self, message): 
+    async def umaddcmd(self, message): 
         """Roʻyxatga filtr qoʻshing.""" 
         filters = self.db.get("Filters", "filters", {}) 
         key = utils.get_args_raw(message) # .lower() 
@@ -35,21 +35,21 @@ class FiltersMod(loader.Module):
                 msgid = (await message.client.send_message(f'friendly-{(await message.client.get_me()).id}-assets', key.split(' / ')[1])).id 
                 key = key.split(' / ')[0] 
             except IndexError: 
-                return await message.reply("<b>Ikkinchi dalil kerak (/ orqali) yoki takrorlang.</b>") 
+                return await message.reply("<b>🥷 Umiklash uchun reply ishlating.</b>") 
  
         filters[chatid].setdefault(key, msgid) 
         self.db.set("Filters", "filters", filters) 
-        await message.reply(f"<b>\"{key}\" filtri saqlandi!</b>")  
+        await message.reply(f"🥷 <b>\"{key}\" filtri saqlandi!</b>")  
  
  
-    async def stopcmd(self, message): 
-        """Filtrni roʻyxatdan olib tashlaydi.""" 
+    async def umdelcmd(self, message): 
+        """Umik roʻyxatdan olib tashlaydi.""" 
         filters = self.db.get("Filters", "filters", {}) 
         args = utils.get_args_raw(message) 
         chatid = str(message.chat_id) 
  
         if chatid not in filters: 
-            return await message.reply("<b>Bu chatda filtr yo‘q.</b>") 
+            return await message.reply("<b>Bu chatda umik yo‘q.</b>") 
  
         if not args: 
             return await message.reply("<b>Hech qanday dalil yo'q.</b>") 
@@ -58,24 +58,24 @@ class FiltersMod(loader.Module):
             try: 
                 filters[chatid].pop(args) 
                 self.db.set("Filters", "filters", filters) 
-                await message.reply(f"<b>\"{args}\" filtri chatdan olib tashlandi!</b>") 
+                await message.reply(f"<b>🥷 \"{args}\" filtri chatdan olib tashlandi!</b>") 
             except KeyError: 
                 return await message.reply(f"<b>\"{args}\" filtri yo'q.</b>") 
         else: 
             return await message.reply("<b>Hech qanday dalil yo'q.</b>") 
  
  
-    async def stopallcmd(self, message): 
-        """Chat ro'yxatidan barcha filtrlarni olib tashlaydi.""" 
+    async def umdelallcmd(self, message): 
+        """Chat ro'yxatidan barcha umiklarni olib tashlaydi.""" 
         filters = self.db.get("Filters", "filters", {}) 
         chatid = str(message.chat_id) 
   
         if chatid not in filters: 
-            return await message.reply("<b>Bu chatda filtr yo‘q.</b>") 
+            return await message.reply("<b>Bu chatda umik yo‘q.</b>") 
  
         filters.pop(chatid) 
         self.db.set("Filters", "filters", filters) 
-        await message.reply("<b>Barcha filtrlar chat roʻyxatidan olib tashlandi!</b>") 
+        await message.reply("<b>Barcha umiklar chat roʻyxatidan olib tashlandi!</b>") 
  
  
     async def filterscmd(self, message): 
@@ -84,12 +84,12 @@ class FiltersMod(loader.Module):
         chatid = str(message.chat_id) 
  
         if chatid not in filters: 
-            return await message.reply("<b>Bu chatda filtr yo‘q.</b>") 
+            return await message.reply("<b>Bu chatda umik yo‘q.</b>") 
  
         msg = "" 
         for _ in filters[chatid]: 
-            msg += f"<b>• {_}</b>\n" 
-        await message.reply(f"<b>Ushbu chatdagi filtrlar roʻyxati: {len(filters[chatid])}\n\n{msg}</b>")  
+            msg += f"<b>ㅤㅤ#{_}</b>\n\n👾 Shunchaki keragini yozing." 
+        await message.reply(f"<b>🥷 Chatdagi umiklar roʻyxati: {len(filters[chatid])}\n{msg}</b>")  
  
  
     async def watcher(self, message): 
