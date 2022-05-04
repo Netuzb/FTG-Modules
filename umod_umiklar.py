@@ -88,8 +88,8 @@ class FiltersMod(loader.Module):
  
         msg = "" 
         for _ in filters[chatid]: 
-            msg += f"\nㅤㅤ#{_}</b>\n\n👾 Keragini yozing." 
-        await message.reply(f"<b>🥷 Chatdagi umiklar roʻyxati: {len(filters[chatid])}\n{msg}</b>")  
+            msg += f"\nㅤㅤ#{_}</b>\n." 
+        await message.reply(f"<b>🥷 Chatdagi umiklar roʻyxati: {len(filters[chatid])}\n{msg}</b>\n\n👾 Keragini tanlang.")  
  
  
     async def watcher(self, message): 
