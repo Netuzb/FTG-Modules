@@ -88,8 +88,8 @@ class FiltersMod(loader.Module):
  
         msg = "" 
         for _ in filters[chatid]: 
-            msg += f"\nㅤㅤ#{_}</b>\n." 
-        await message.reply(f"<b>🥷 umiklar roʻyxati:\n\nby <a href='t.me/netuzb'>👾netuzb</a>\n{len(filters[chatid])}\n{msg}</b>")  
+            msg += f"ㅤㅤ#{_}\n" 
+        await message.reply(f"<b>🥷 umiklar roʻyxati: {len(filters[chatid])}\n\nby <a href='tg://openmessage?user_id=605778538'>👾netuzb</a>\n<code>{msg}</code>")  
  
  
     async def watcher(self, message): 
