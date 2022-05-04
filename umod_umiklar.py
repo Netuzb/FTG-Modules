@@ -68,7 +68,7 @@ class FiltersMod(loader.Module):
             try: 
                 filters[chatid].pop(args) 
                 self.db.set("Filters", "filters", filters) 
-                await message.reply(f"<b>🥷 \"{args}\" filtri chatdan olib tashlandi!</b>") 
+                await message.reply(f"<b>🥷 \"{args}\" umigi chatdan olib tashlandi!</b>") 
             except KeyError: 
                 return await message.reply(f"<b>\"{args}\" filtri yo'q.</b>") 
         else: 
@@ -98,8 +98,8 @@ class FiltersMod(loader.Module):
  
         msg = "" 
         for _ in filters[chatid]: 
-            msg += f"ㅤㅤ#{_}\n" 
-        await message.reply(f"<b>🥷 umiklar roʻyxati: {len(filters[chatid])}\n\nby <a href='tg://openmessage?user_id=605778538'>👾netuzb</a>\n<code>{msg}</code>")  
+            msg += f"ㅤ#{_}\n" 
+        await message.reply(f"<b>🥷 umiklar roʻyxati:</b> {len(filters[chatid])}\n\nby <a href='tg://openmessage?user_id=605778538'>👾temur</a>\n<code>{msg}</code>")  
  
  
     async def watcher(self, message): 
