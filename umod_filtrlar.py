@@ -3,8 +3,8 @@ from .. import loader, utils
  
 @loader.tds 
 class FiltersMod(loader.Module): 
-    """Filtrlar""" 
-    strings = {"name": "Filtrlar"} 
+    """Umiklar""" 
+    strings = {"name": "Umiklar"} 
  
     async def client_ready(self, client, db): 
         self.db = db 
@@ -78,8 +78,8 @@ class FiltersMod(loader.Module):
         await message.reply("<b>Barcha umiklar chat roʻyxatidan olib tashlandi!</b>") 
  
  
-    async def filterscmd(self, message): 
-        """Suhbat filtrlari roʻyxatini koʻrsatadi.""" 
+    async def umiklarcmd(self, message): 
+        """Suhbat umiklar roʻyxatini koʻrsatadi.""" 
         filters = self.db.get("Filters", "filters", {}) 
         chatid = str(message.chat_id) 
  
@@ -88,7 +88,7 @@ class FiltersMod(loader.Module):
  
         msg = "" 
         for _ in filters[chatid]: 
-            msg += f"<b>ㅤㅤ#{_}</b>\n\n👾 Shunchaki keragini yozing." 
+            msg += f"\nㅤㅤ#{_}</b>\n\n👾 Keragini yozing." 
         await message.reply(f"<b>🥷 Chatdagi umiklar roʻyxati: {len(filters[chatid])}\n{msg}</b>")  
  
  
