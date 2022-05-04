@@ -1,22 +1,16 @@
-"""
-    ████░████░███░███░██░██░████░
-    ░██░░██░░░██░█░██░██░██░███░░
-    ░██░░████░██░░░██░█████░█████
-    ═════════════════════════════════════════
-    ████░████░░██░██░██░███░░██░█████░██░░░██
-    ██░░░███░░░████░░██░██░█░██░██░██░░██░██░
-    ████░█████░██░██░██░██░░███░█████░░░███░░
-    ═════════════════════════════════════════
-    Litsenziya: LLC © N.OA.ZL.QW (qaysi tupoy modul uchun litsenziya oladi? beradi?)
-    Taqdim qilingan sana: 12.03.2022 / 12:44
-    Taqdim qilingan manzil: https://telegram.me/umodules
-    ═════════════════════════════════════════
-    GeekTG yoki FTG oʻrnatish qoʻllanmasi: https://t.me/TGraphUz/1620
-"""
+#    ████░████░███░███░██░██░████░
+#    ░██░░██░░░██░█░██░██░██░███░░
+#    ░██░░████░██░░░██░█████░█████
+#    ═════════════════════════════════════════
+#    ████░████░░██░██░██░███░░██░█████░██░░░██
+#    ██░░░███░░░████░░██░██░█░██░██░██░░██░██░
+#    ████░█████░██░██░██░██░░███░█████░░░███░░
+#    ═════════════════════════════════════════
+#    Litsenziya: https://t.me/UModules/112
+#    Taqdim qilingan manzil: https://telegram.me/umodules
 __version__ = (1, 2, 0)
 
-# mod developer: @umodules
-# mod checked? no yes?
+# mod developer: @netuzb
 
 from .. import loader, utils 
 from telethon import events 
@@ -27,12 +21,12 @@ from asyncio.exceptions import TimeoutError
 class SpotifyDownloaderMod(loader.Module):
     """Musiqa izlash moduli"""
     strings = {
-        "name": "MusiqaTopuvchi",
-        "yoq": "<b>📖 Hechnima topilmadi!</b>",
-        "qidiryapman": "<b>📖 Qidirilmoqda...</b>",
-        "eshe": "<b>📖 Qayta urunib koʻring!</b>",
-        "spisok": "<b>📖 Musiqalar roʻyhati bazasi</b> @mephbot!</b>",
-        "topmadim": "<b>📖 Musiqa topilmadi. Balkim nomini xato yozgandursiz?</b>"}
+        "name": "Musiqachi",
+        "yoq": "<b>🥷 Qidirilmoqda...\n├╴╴╴╴╴╴╴╴╴╴\n└ 👾 Hechnima topilmadi!</b>",
+        "qidiryapman": "<b>🥷 Qidirilmoqda...</b>",
+        "eshe": "<b>🥷 Qidirilmoqda...\n├╴╴╴╴╴╴╴╴╴╴\n└ 👾 Qayta urunib koʻring!</b>",
+        "spisok": "<b>🥷 Musiqalar roʻyhati bazasi</b> @mephbot!</b>",
+        "topmadim": "<b>🥷 Musiqa topilmadi. Balkim nomini xato yozgandursiz?</b>"}
     
     async def client_ready(self, client, db):
         self.client = client
@@ -68,8 +62,8 @@ class SpotifyDownloaderMod(loader.Module):
             await message.edit(self.strings("qidiryapman", message))
             music = await message.client.inline_query('lybot', args) 
             await message.delete() 
-            await message.client.send_file(message.to_id, music[0].result.document, caption="📖 <b>Musiqa topildi!</b>", reply_to=reply.id if reply else None) 
-        except: return await message.client.send_message(message.chat_id, f"📖 <b>{args}</b> - Spotify'da topilmadi!\n📖 <b>Balkim <code>vk</code> orqali izlab ko'rarsiz?</b>")
+            await message.client.send_file(message.to_id, music[0].result.document, caption="<b>🥷 Qidirilmoqda...\n├╴╴╴╴╴╴╴╴╴╴\n└ 👾 Musiqa topildi!</b>", reply_to=reply.id if reply else None) 
+        except: return await message.client.send_message(message.chat_id, f"<b>🥷 Qidirilmoqda...\n├╴╴╴╴╴╴╴╴╴╴\n└ 👾 {args} - Spotify'da topilmadi! Balkim <code>vk</code> orqali izlab ko'rarsiz?</b>")
 
     async def nomcmd(self, message): 
         """musiqa yoki esda bor albom nomi""" 
